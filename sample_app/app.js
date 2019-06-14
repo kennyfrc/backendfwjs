@@ -1,3 +1,18 @@
+// Below is a more basic implementation
+
+var instant = require('../lib/instant'),
+
+var app = instant()
+
+app.get('/', function(req, res) {
+  res.send("It's alive!")
+})
+
+app.listen(3000)
+
+
+// Below is the router that renders the view tempaltes
+
 var instant = require('../lib/instant'),
     logger = require('morgan'),
     serveStatic = require('serve-static')
@@ -11,7 +26,6 @@ app.use(logger())
 app.use(serveStatic(__dirname + '/public'))
 
 app.get('/', function(req, res) {
-  // res.send("It's alive!")
   res.render('index', { title: 'Instant' })
 })
 
