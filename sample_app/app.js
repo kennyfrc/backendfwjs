@@ -35,12 +35,15 @@ var shazam = require('../lib/shazam'),
 
 var app = shazam()
 
+// invokes the templating API
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
-app.use(logger(':method :url'))
 
+// invokes the middleware API
+app.use(logger(':method :url'))
 app.use(serveStatic(__dirname + '/public'))
 
+// invokes the router API
 app.get('/', function(req, res) {
   res.render('index', { title: 'shazam' })
 })
