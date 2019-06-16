@@ -27,7 +27,7 @@ describe('App', function() {
     assert(res.send)
   })
 
-  xit('call middlewares', function() {
+  it('call middlewares', function() {
     var called
     
     this.app.use(function(req, res, next) { next() })

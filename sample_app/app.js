@@ -14,23 +14,35 @@
 
 // this tests out the view templates
 
-var shazam = require('../lib/shazam')
+// var shazam = require('../lib/shazam')
+
+// var app = shazam()
+
+// app.set('views', __dirname + '/views')
+// app.set('view engine', 'jade')
+
+// app.get('/', function(req, res) {
+//   res.render('index', { title: 'shazam' })
+// })
+
+// app.listen(3000)
+
+// this tests out the middleware (static file)
+
+var shazam = require('../lib/shazam'),
+	logger = require('morgan'),
+    serveStatic = require('serve-static')
 
 var app = shazam()
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
+app.use(logger(':method :url'))
+
+app.use(serveStatic(__dirname + '/public'))
 
 app.get('/', function(req, res) {
   res.render('index', { title: 'shazam' })
 })
 
 app.listen(3000)
-
-
-
-//     logger = require('morgan'),
-//     serveStatic = require('serve-static')
-
-// app.use(logger())
-// app.use(serveStatic(__dirname + '/public'))
