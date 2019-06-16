@@ -1,39 +1,17 @@
-# Instant
+# Backend Framework JS (Shazam)
 
-A project of [The Great Code Club](http://www.greatcodeclub.com/).
+## TODO:
 
-Instant is a web framework inspired by Express.
+We implement a `Router` class with a `route(method, url, callback(req, res))` method for defining routes.
 
-## Usage
+The router routes the requests via its handle(req, res) method.
 
-    var instant = require('instant')
+If a route is not found, an error is raised.
 
-    var app = instant()
+We wrap the router in an App to expose a nicer API.
 
-    app.set('views', __dirname + '/views')
-    app.set('view engine', 'jade')
+We make res, the response object, inherit from our own Response class.
 
-    app.use(anyExpressMiddleware())
+This allow us to add our own methods to res. Like res.send([status,] body).
 
-    app.get('/', function(req, res) {
-      res.render('index', { title: 'Instant' })
-    })
-
-    app.listen(3000)
-
-## Installation
-
-You need:
-
-- A recent version of [node](http://nodejs.org/).
-
-To install Node modules and compile the parser:
-
-    $ npm install
-
-## License
-
-Copyright 2014 Coded Inc.  
-marc@codedinc.com
-
-You are free to modify and distribute this however you want. Except for teaching purposes.
+We wrap the App creation in a nice instant() function.
