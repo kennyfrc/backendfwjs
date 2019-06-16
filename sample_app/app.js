@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
   res.send("It's alive!")
 })
 
-app.listen(3000)
+app.listen(3000) 
 
 
 // // Below is the router that renders the view tempaltes

@@ -1,7 +1,7 @@
 var assert = require('assert'),
     Response = require('../lib/response').Response
 
-describe('Response', function() {
+xdescribe('Response', function() {
   beforeEach(function() {
     this.res = new Response()
 
@@ -18,7 +18,7 @@ describe('Response', function() {
     }
   })
 
-  it('send body', function() {
+  xit('send body', function() {
     var called
     
     this.res.send('hi')
@@ -29,7 +29,7 @@ describe('Response', function() {
     assert.equal(this.written.body, 'hi')
   })
 
-  it('send status and body', function() {
+  xit('send status and body', function() {
     var called
     
     this.res.send(500, 'Oops')
